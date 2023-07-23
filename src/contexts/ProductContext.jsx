@@ -15,7 +15,7 @@ const ProductProvider = ({ children }) => {
     };
     fetchProducts();
   }, [])
-  return <ProductContext.Provider value={{products}}>
+  return <ProductContext.Provider value={{ products }}>
     {children}
   </ProductContext.Provider>;
 };
