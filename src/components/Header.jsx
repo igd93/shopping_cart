@@ -5,8 +5,8 @@ import { BsBag } from 'react-icons/bs';
 const Header = () => {
   const {isOpen, setIsOpen} = useContext(SidebarContext)
   return (
-  <header className='bg-pink-200'>
-    <div>
+  <header>
+    <div className='bg-pink-200'>
       Header
     </div>
     <div onClick={() => setIsOpen(!isOpen)} 
