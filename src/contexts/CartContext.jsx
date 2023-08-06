@@ -6,6 +6,7 @@ export const CartContext = createContext();
 const CartProvider = ({ children }) => {
   //cart state
   const [cart, setCart] = useState([]);
+  //add to cart
   const addToCart = (product, id) => {
     const newItem = { ...product, amount: 1 };
     // check if the item is already in
@@ -28,8 +29,16 @@ const CartProvider = ({ children }) => {
       setCart([...cart, newItem]);
     }
   };
-  console.log(cart);
-  return <CartContext.Provider value={{ cart, addToCart }}>
+
+  //remove from cart
+  const removeFromCart = (id) => {
+    const newCart = cart.filter(item => {
+      return item.id !== id;
+    });
+    setCart(newCart);
+  }
+  
+  return <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
     {children}
   </CartContext.Provider>;
 };
